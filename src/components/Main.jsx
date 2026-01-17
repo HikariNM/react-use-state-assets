@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import props from '../data/languages'
-
+import Card from './Card'
 
 function Main() {
 
@@ -10,17 +10,7 @@ function Main() {
         setSelected(currentId => currentId === id ? null : id);
     };
 
-    function Card() {
-        return (
-            <div className='d-flex justify-content-center my-5'>
-                <div className={`${selected ? 'p-4 border border-warning rounded-top bg-light-subtle' : 'p-4'}`}>
-                    <h3>{selected ? props.find(e => e.id === selected).title : 'Nessun linguaggio selezionato'}</h3>
-                    <p>{selected ? props.find(e => e.id === selected).description : ''}</p>
-                </div>
-            </div>
 
-        )
-    };
 
     return (<>
         <main>
@@ -31,7 +21,8 @@ function Main() {
                     ))}
                 </div>
 
-                {Card()}
+                <Card state={selected} data={props} />
+
 
             </div>
         </main>
