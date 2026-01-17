@@ -6,7 +6,7 @@ function Main() {
 
     const [selected, setSelected] = useState(null);
 
-    function onClick(id) {
+    function clicked(id) {
         setSelected(currentId => currentId === id ? null : id);
     };
 
@@ -17,7 +17,7 @@ function Main() {
             <div className='container-md my-5'>
                 <div className='d-flex gap-3 justify-content-center'>
                     {props.map(e => (
-                        <button onClick={() => onClick(e.id)} key={e.id} type="button" className={`btn ${selected === e.id ? 'btn-warning' : 'btn-primary'}`}>{e.title}</button>
+                        <button onClick={() => clicked(e.id)} key={e.id} type="button" className={`btn ${selected === e.id ? 'btn-warning' : 'btn-primary'}`}>{e.title}</button>
                     ))}
                 </div>
 
